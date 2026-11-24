@@ -49,6 +49,7 @@ export default function Login() {
           {enviando ? 'Ingresando…' : 'Iniciar sesión'}
         </button>
         <p className="nota-login">¿Olvidaste tu contraseña? Contacta a tu supervisor.</p>
+        <p className="nota-login">Proyecto académico (iPlacex, 2026). Datos ficticios.</p>
       </form>
     </div>
   );

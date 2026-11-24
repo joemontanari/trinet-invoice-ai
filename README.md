@@ -2,6 +2,8 @@
 
 Sistema web que lee con IA (API de Claude) las facturas de proveedores en PDF, las somete a validación del operador y aprobación del supervisor, y genera la invoice al cliente con un margen fijo. Proyecto de título, Ingeniería en Informática (iPlacex, 2026).
 
+> Proyecto académico. No es un sistema en operación de Trinet Global Logistic; todos los datos (clientes, proveedores, facturas, usuarios) son ficticios.
+
 ## Estructura
 
 ```
