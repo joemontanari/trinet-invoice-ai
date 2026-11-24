@@ -57,7 +57,7 @@ DEV_AUTH=1 DB_HOST=127.0.0.1 DB_PORT=3307 DB_USER=tia_app DB_PASSWORD=<clave> DB
 
 ## Producción
 
-- **Aplicación:** Render, servicio web Node. Build: `cd frontend && npm ci && npm run build && cd ../backend && npm ci`. Start: `cd backend && npm start`.
+- **Aplicación:** Render, servicio web Node. Build: `cd frontend && npm ci --include=dev && npm run build && cd ../backend && npm ci`. Start: `cd backend && npm start`.
 - **Base de datos:** Aiven for MySQL (TLS). Cargar los tres scripts de `db/`.
 - **Autenticación:** Google Identity Platform (Firebase Auth, correo y contraseña).
 
