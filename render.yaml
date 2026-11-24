@@ -13,17 +13,18 @@ services:
         value: "24"
       - key: DATABASE_URL
         sync: false
-      - key: DB_CA_CERT
-        sync: false
+      - key: DB_CA_CERT            # secret file con el certificado de Aiven
+        value: /etc/secrets/ca.pem
       - key: ANTHROPIC_API_KEY
         sync: false
       - key: FIREBASE_PROJECT_ID
-        sync: false
-      - key: FIREBASE_SERVICE_ACCOUNT
-        sync: false
+        value: trinet-invoice-ai
+      - key: FIREBASE_SERVICE_ACCOUNT  # secret file con la cuenta de servicio
+        value: /etc/secrets/firebase-admin.json
+      # Configuración web de Firebase: pública por diseño, va en el JavaScript del navegador.
       - key: VITE_FIREBASE_API_KEY
-        sync: false
+        value: AIzaSyA_aLRBw0nJC12Nh_QFnwDxj4qCvY5pH2Y
       - key: VITE_FIREBASE_AUTH_DOMAIN
-        sync: false
+        value: trinet-invoice-ai.firebaseapp.com
       - key: VITE_FIREBASE_PROJECT_ID
-        sync: false
+        value: trinet-invoice-ai

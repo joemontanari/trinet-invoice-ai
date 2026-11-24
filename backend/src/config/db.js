@@ -1,9 +1,13 @@
+import { readFileSync } from 'node:fs';
 import mysql from 'mysql2/promise';
 import { config } from './env.js';
 
 // Pool compartido por todos los repositorios. Los DECIMAL llegan como texto
 // y los servicios los convierten a centavos para no perder precisión.
 const comunes = { connectionLimit: 10, namedPlaceholders: true, dateStrings: true, charset: 'utf8mb4' };
+
+// DB_CA_CERT puede traer el certificado PEM o la ruta del archivo (secret file del hosting).
+const certificadoCA = (valor) => (valor.trim().startsWith('-----') ? valor : readFileSync(valor, 'utf8'));
 
 function opcionesProduccion() {
   // DATABASE_URL: mysql://usuario:clave@host:puerto/base (servicio administrado con TLS)
@@ -14,7 +18,7 @@ function opcionesProduccion() {
     user: decodeURIComponent(url.username),
     password: decodeURIComponent(url.password),
     database: url.pathname.replace(/^\//, '') || config.db.database,
-    ssl: config.db.caCert ? { ca: config.db.caCert } : { rejectUnauthorized: true },
+    ssl: config.db.caCert ? { ca: certificadoCA(config.db.caCert) } : { rejectUnauthorized: true },
   };
 }
 
