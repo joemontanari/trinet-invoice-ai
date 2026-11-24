@@ -23,7 +23,7 @@ export default function Login() {
       <form className="tarjeta-login" onSubmit={enviar}>
         <div className="logo">
           Trinet Invoice AI
-          <small>Trinet Global Logistic, facturación inteligente</small>
+          <small>Facturación inteligente</small>
         </div>
         <Aviso>{error}</Aviso>
         {modoDesarrollo ? (
