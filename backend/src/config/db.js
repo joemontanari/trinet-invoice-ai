@@ -10,6 +10,7 @@ const comunes = { connectionLimit: 10, namedPlaceholders: true, dateStrings: tru
 const certificadoCA = (valor) => (valor.trim().startsWith('-----') ? valor : readFileSync(valor, 'utf8'));
 
 function opcionesProduccion() {
+  console.log(`Base de datos: TLS con ${config.db.caCert ? (config.db.caCert.trim().startsWith('-----') ? 'certificado en variable' : config.db.caCert) : 'certificados del sistema (falta DB_CA_CERT)'}`);
   // DATABASE_URL: mysql://usuario:clave@host:puerto/base (servicio administrado con TLS)
   const url = new URL(config.db.url);
   return {
